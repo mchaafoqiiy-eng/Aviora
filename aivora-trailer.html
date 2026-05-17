@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aivora — Trailer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh}
+
+/* ── STAGE ── */
+.stage{width:100%;height:100%;position:relative;background:#000;overflow:hidden}
+
+/* ── GRID BG ── */
+.grid{position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,165,233,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,165,233,.06) 1px,transparent 1px);
+  background-size:50px 50px;
+  animation:gridPulse 6s ease-in-out infinite;
+}
+@keyframes gridPulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── GLOWS ── */
+.glow1{position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,165,233,.18) 0%,transparent 70%);
+  top:-200px;left:-150px;animation:move1 12s ease-in-out infinite}
+.glow2{position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(6,230,230,.14) 0%,transparent 70%);
+  bottom:-150px;right:-100px;animation:move2 15s ease-in-out infinite}
+.glow3{position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,255,204,.1) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);animation:move3 8s ease-in-out infinite}
+@keyframes move1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,60px) scale(1.2)}}
+@keyframes move2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-60px,-80px) scale(1.15)}}
+@keyframes move3{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.6}50%{transform:translate(-50%,-50%) scale(1.4);opacity:1}}
+
+/* ── PARTICLES ── */
+.particles{position:absolute;inset:0;pointer-events:none}
+.particle{position:absolute;border-radius:50%;animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:.8}100%{transform:translateY(-100px) scale(1);opacity:0}}
+
+/* ── NEURAL NETWORK ── */
+.neural{position:absolute;inset:0;opacity:.25}
+
+/* ── SCAN LINE ── */
+.scanline{position:absolute;width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(14,165,233,.6),rgba(6,230,230,.8),rgba(14,165,233,.6),transparent);
+  box-shadow:0 0 20px rgba(14,165,233,.4);
+  animation:scan 4s linear infinite;top:-2px}
+@keyframes scan{0%{top:-2px}100%{top:100%}}
+
+/* ── MAIN CONTENT ── */
+.content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10}
+
+/* ── LOGO ANIMATION ── */
+.logo-wrap{margin-bottom:32px;opacity:0;animation:fadeUp .8s .5s ease forwards}
+.logo-icon-anim{width:72px;height:72px;position:relative;margin:0 auto 16px}
+.logo-icon-anim svg{width:100%;height:100%}
+
+/* ── BADGE ── */
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;
+  background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.25);
+  border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#06e6e6;margin-bottom:28px;
+  opacity:0;animation:fadeUp .7s .8s ease forwards}
+.badge-dot{width:6px;height:6px;background:#00ffcc;border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 6px #00ffcc}50%{opacity:.2;box-shadow:none}}
+
+/* ── HEADLINE ── */
+.headline{text-align:center;margin-bottom:20px}
+.h-line1{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,7rem);font-weight:800;
+  letter-spacing:-.04em;color:#fff;line-height:1;display:block;
+  opacity:0;animation:revealText .8s 1s ease forwards}
+.h-line2{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,7rem);font-weight:800;
+  letter-spacing:-.04em;line-height:1;display:block;
+  background:linear-gradient(135deg,#0ea5e9,#06e6e6,#00ffcc);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  background-size:200%;animation:revealText .8s 1.2s ease forwards, gradShift 4s 2s linear infinite;
+  opacity:0}
+@keyframes gradShift{0%{background-position:0%}100%{background-position:200%}}
+@keyframes revealText{0%{opacity:0;transform:translateY(30px) skewY(2deg)}100%{opacity:1;transform:translateY(0) skewY(0)}}
+
+/* ── SUBTITLE ── */
+.subtitle{font-size:clamp(.85rem,2vw,1.1rem);color:rgba(255,255,255,.45);font-weight:300;
+  text-align:center;max-width:520px;line-height:1.7;margin-bottom:44px;
+  opacity:0;animation:fadeUp .7s 1.5s ease forwards}
+
+/* ── CTA BUTTONS ── */
+.ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  opacity:0;animation:fadeUp .7s 1.8s ease forwards}
+.btn-main{padding:14px 34px;background:linear-gradient(135deg,#0ea5e9,#06e6e6);
+  color:#000;font-weight:800;font-size:.92rem;border-radius:10px;border:none;
+  cursor:pointer;position:relative;overflow:hidden;transition:all .3s;letter-spacing:.02em}
+.btn-main::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,#06e6e6,#00ffcc);
+  opacity:0;transition:opacity .3s}
+.btn-main:hover::before{opacity:1}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(14,165,233,.6)}
+.btn-main span{position:relative;z-index:1}
+.btn-ghost{padding:14px 34px;background:transparent;color:#fff;font-weight:600;
+  font-size:.92rem;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);
+  cursor:pointer;transition:all .3s}
+.btn-ghost:hover{border-color:rgba(14,165,233,.6);color:#0ea5e9;
+  background:rgba(14,165,233,.06);transform:translateY(-2px)}
+
+/* ── FLOATING CARDS ── */
+.cards-wrap{position:absolute;inset:0;pointer-events:none;z-index:5}
+.float-card{position:absolute;background:rgba(10,22,40,.85);
+  border:1px solid rgba(14,165,233,.2);border-radius:14px;padding:14px 18px;
+  backdrop-filter:blur(12px);opacity:0;animation:cardFloat ease-in-out infinite}
+.float-card .card-icon{font-size:1.4rem;margin-bottom:6px}
+.float-card .card-title{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:#e8f4ff;margin-bottom:3px}
+.float-card .card-sub{font-size:.68rem;color:#4d6e95}
+.card1{top:15%;left:4%;width:160px;animation-duration:7s;animation-delay:2.2s;animation-name:cardFloat1}
+.card2{top:12%;right:4%;width:170px;animation-duration:8s;animation-delay:2.5s;animation-name:cardFloat2}
+.card3{bottom:20%;left:5%;width:150px;animation-duration:9s;animation-delay:2.8s;animation-name:cardFloat3}
+.card4{bottom:18%;right:4%;width:160px;animation-duration:7.5s;animation-delay:3s;animation-name:cardFloat4}
+
+@keyframes cardFloat1{0%{opacity:0;transform:translate(-30px,20px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(-10px,-20px)}}
+@keyframes cardFloat2{0%{opacity:0;transform:translate(30px,20px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(10px,-20px)}}
+@keyframes cardFloat3{0%{opacity:0;transform:translate(-20px,-20px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(-10px,20px)}}
+@keyframes cardFloat4{0%{opacity:0;transform:translate(20px,-20px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(10px,20px)}}
+
+/* ── STATS BAR ── */
+.stats{display:flex;gap:40px;justify-content:center;margin-top:52px;
+  opacity:0;animation:fadeUp .7s 2.1s ease forwards;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;
+  background:linear-gradient(135deg,#0ea5e9,#06e6e6);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-l{font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+
+/* ── CORNER DECORATIONS ── */
+.corner{position:absolute;width:60px;height:60px;opacity:.3}
+.corner.tl{top:20px;left:20px;border-top:1.5px solid #0ea5e9;border-left:1.5px solid #0ea5e9}
+.corner.tr{top:20px;right:20px;border-top:1.5px solid #0ea5e9;border-right:1.5px solid #0ea5e9}
+.corner.bl{bottom:20px;left:20px;border-bottom:1.5px solid #0ea5e9;border-left:1.5px solid #0ea5e9}
+.corner.br{bottom:20px;right:20px;border-bottom:1.5px solid #0ea5e9;border-right:1.5px solid #0ea5e9}
+
+/* ── COUNTER ANIMATION ── */
+.counter-ring{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .5s 2.5s ease forwards}
+.ring-progress{width:32px;height:32px;position:relative}
+.ring-progress svg{transform:rotate(-90deg)}
+.ring-track{fill:none;stroke:rgba(14,165,233,.15);stroke-width:3}
+.ring-fill{fill:none;stroke:url(#ringGrad);stroke-width:3;stroke-linecap:round;
+  stroke-dasharray:88;stroke-dashoffset:88;animation:ringFill 8s 2.5s linear infinite}
+@keyframes ringFill{0%{stroke-dashoffset:88}100%{stroke-dashoffset:0}}
+.ring-label{font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.08em}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- Background -->
+  <div class="grid"></div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+  <div class="glow3"></div>
+  <div class="scanline"></div>
+
+  <!-- Corner decorations -->
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <!-- Neural Network SVG -->
+  <svg class="neural" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#0ea5e9" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#06e6e6" stop-opacity="0.3"/>
+      </radialGradient>
+    </defs>
+    <!-- Lines -->
+    <g stroke="#0ea5e9" stroke-opacity="0.15" stroke-width="1" fill="none">
+      <line x1="120" y1="180" x2="380" y2="320"><animate attributeName="stroke-opacity" values="0.05;0.3;0.05" dur="4s" repeatCount="indefinite"/></line>
+      <line x1="380" y1="320" x2="650" y2="200"><animate attributeName="stroke-opacity" values="0.15;0.4;0.15" dur="3s" begin="0.5s" repeatCount="indefinite"/></line>
+      <line x1="650" y1="200" x2="900" y2="350"><animate attributeName="stroke-opacity" values="0.05;0.25;0.05" dur="5s" begin="1s" repeatCount="indefinite"/></line>
+      <line x1="900" y1="350" x2="1200" y2="220"><animate attributeName="stroke-opacity" values="0.1;0.35;0.1" dur="3.5s" begin="0.3s" repeatCount="indefinite"/></line>
+      <line x1="1200" y1="220" x2="1380" y2="400"><animate attributeName="stroke-opacity" values="0.05;0.2;0.05" dur="4.5s" repeatCount="indefinite"/></line>
+      <line x1="120" y1="180" x2="300" y2="600"><animate attributeName="stroke-opacity" values="0.08;0.28;0.08" dur="6s" repeatCount="indefinite"/></line>
+      <line x1="380" y1="320" x2="500" y2="650"><animate attributeName="stroke-opacity" values="0.12;0.32;0.12" dur="4s" begin="1.5s" repeatCount="indefinite"/></line>
+      <line x1="650" y1="200" x2="720" y2="700"><animate attributeName="stroke-opacity" values="0.06;0.22;0.06" dur="5.5s" begin="0.8s" repeatCount="indefinite"/></line>
+      <line x1="900" y1="350" x2="950" y2="720"><animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="3.8s" begin="2s" repeatCount="indefinite"/></line>
+      <line x1="1200" y1="220" x2="1100" y2="680"><animate attributeName="stroke-opacity" values="0.07;0.25;0.07" dur="4.2s" begin="1.2s" repeatCount="indefinite"/></line>
+      <line x1="300" y1="600" x2="500" y2="650"><animate attributeName="stroke-opacity" values="0.1;0.35;0.1" dur="3s" begin="0.6s" repeatCount="indefinite"/></line>
+      <line x1="500" y1="650" x2="720" y2="700"><animate attributeName="stroke-opacity" values="0.08;0.28;0.08" dur="4.8s" begin="1.8s" repeatCount="indefinite"/></line>
+      <line x1="720" y1="700" x2="950" y2="720"><animate attributeName="stroke-opacity" values="0.12;0.38;0.12" dur="3.2s" begin="0.4s" repeatCount="indefinite"/></line>
+      <line x1="950" y1="720" x2="1100" y2="680"><animate attributeName="stroke-opacity" values="0.06;0.22;0.06" dur="5s" begin="1.6s" repeatCount="indefinite"/></line>
+    </g>
+    <!-- Nodes -->
+    <g>
+      <circle cx="120" cy="180" r="5" fill="#0ea5e9" opacity="0.7"><animate attributeName="r" values="4;7;4" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="380" cy="320" r="6" fill="#06e6e6" opacity="0.8"><animate attributeName="r" values="5;9;5" dur="4s" begin="0.5s" repeatCount="indefinite"/></circle>
+      <circle cx="650" cy="200" r="5" fill="#0ea5e9" opacity="0.7"><animate attributeName="r" values="4;8;4" dur="3.5s" begin="1s" repeatCount="indefinite"/></circle>
+      <circle cx="900" cy="350" r="7" fill="#00ffcc" opacity="0.6"><animate attributeName="r" values="5;10;5" dur="5s" begin="0.8s" repeatCount="indefinite"/></circle>
+      <circle cx="1200" cy="220" r="5" fill="#0ea5e9" opacity="0.7"><animate attributeName="r" values="4;7;4" dur="4.2s" begin="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="1380" cy="400" r="4" fill="#06e6e6" opacity="0.6"><animate attributeName="r" values="3;6;3" dur="3.8s" repeatCount="indefinite"/></circle>
+      <circle cx="300" cy="600" r="6" fill="#0ea5e9" opacity="0.7"><animate attributeName="r" values="5;8;5" dur="4.5s" begin="2s" repeatCount="indefinite"/></circle>
+      <circle cx="500" cy="650" r="5" fill="#06e6e6" opacity="0.6"><animate attributeName="r" values="4;7;4" dur="3.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="720" cy="700" r="7" fill="#00ffcc" opacity="0.7"><animate attributeName="r" values="5;11;5" dur="6s" begin="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="950" cy="720" r="5" fill="#0ea5e9" opacity="0.6"><animate attributeName="r" values="4;8;4" dur="4s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="1100" cy="680" r="6" fill="#06e6e6" opacity="0.8"><animate attributeName="r" values="5;9;5" dur="3.6s" begin="1.8s" repeatCount="indefinite"/></circle>
+    </g>
+    <!-- Travelling signals -->
+    <circle r="3" fill="#00ffcc" opacity="0.9">
+      <animateMotion dur="4s" repeatCount="indefinite" path="M120,180 L380,320 L650,200 L900,350 L1200,220"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2.5" fill="#0ea5e9" opacity="0.9">
+      <animateMotion dur="5s" begin="2s" repeatCount="indefinite" path="M300,600 L500,650 L720,700 L950,720 L1100,680"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="5s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2" fill="#06e6e6" opacity="0.9">
+      <animateMotion dur="6s" begin="1s" repeatCount="indefinite" path="M650,200 L720,700"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+  </svg>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Floating Cards -->
+  <div class="cards-wrap">
+    <div class="float-card card1">
+      <div class="card-icon">📰</div>
+      <div class="card-title">GPT-5 Launched</div>
+      <div class="card-sub">Breaking · 2 min ago</div>
+    </div>
+    <div class="float-card card2">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">ChatGPT Enterprise</div>
+      <div class="card-sub">★★★★★ 4.9/5</div>
+    </div>
+    <div class="float-card card3">
+      <div class="card-icon">📊</div>
+      <div class="card-title">Claude vs GPT-5</div>
+      <div class="card-sub">Full Comparison →</div>
+    </div>
+    <div class="float-card card4">
+      <div class="card-icon">🎓</div>
+      <div class="card-title">AI Agent Tutorial</div>
+      <div class="card-sub">14 min · Free</div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="logo-wrap">
+      <svg width="80" height="80" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0ea5e9"/>
+            <stop offset="100%" stop-color="#06e6e6"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#06e6e6" stop-opacity="0.1"/>
+          </linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="52" height="52" rx="13" fill="url(#lg2)" stroke="url(#lg1)" stroke-width="1.5"/>
+        <circle cx="26" cy="10" r="3.5" fill="url(#lg1)" filter="url(#glow)"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle>
+        <circle cx="12" cy="28" r="3" fill="url(#lg1)" opacity=".8"><animate attributeName="r" values="2.5;4;2.5" dur="2.5s" begin=".3s" repeatCount="indefinite"/></circle>
+        <circle cx="40" cy="28" r="3" fill="url(#lg1)" opacity=".8"><animate attributeName="r" values="2.5;4;2.5" dur="2.2s" begin=".6s" repeatCount="indefinite"/></circle>
+        <circle cx="18" cy="43" r="2.5" fill="url(#lg1)" opacity=".6"><animate attributeName="r" values="2;3.5;2" dur="3s" begin=".9s" repeatCount="indefinite"/></circle>
+        <circle cx="34" cy="43" r="2.5" fill="url(#lg1)" opacity=".6"><animate attributeName="r" values="2;3.5;2" dur="2.8s" begin="1.2s" repeatCount="indefinite"/></circle>
+        <line x1="26" y1="13.5" x2="12" y2="25" stroke="url(#lg1)" stroke-width="1.2" opacity=".6"/>
+        <line x1="26" y1="13.5" x2="40" y2="25" stroke="url(#lg1)" stroke-width="1.2" opacity=".6"/>
+        <line x1="12" y1="31" x2="18" y2="40.5" stroke="url(#lg1)" stroke-width="1" opacity=".4"/>
+        <line x1="40" y1="31" x2="34" y2="40.5" stroke="url(#lg1)" stroke-width="1" opacity=".4"/>
+        <line x1="15" y1="28" x2="37" y2="28" stroke="url(#lg1)" stroke-width="1" opacity=".3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="15" fill="url(#lg1)" letter-spacing="-1">AI</text>
+      </svg>
+    </div>
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Live · AI News & Tools · Updated Daily
+    </div>
+
+    <div class="headline">
+      <span class="h-line1">Aivora</span>
+      <span class="h-line2">The Future of AI Knowledge</span>
+    </div>
+
+    <p class="subtitle">Breaking AI news, 500+ tool reviews, head-to-head comparisons<br>and expert tutorials — all in one place. For free.</p>
+
+    <div class="ctas">
+      <button class="btn-main" onclick="window.parent.postMessage('explore','*')"><span>Explore Now →</span></button>
+      <button class="btn-ghost" onclick="window.parent.postMessage('tools','*')">Discover AI Tools</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-n" id="c1">0</div><div class="stat-l">Monthly Readers</div></div>
+      <div class="stat"><div class="stat-n" id="c2">0</div><div class="stat-l">Tools Reviewed</div></div>
+      <div class="stat"><div class="stat-n" id="c3">0</div><div class="stat-l">Expert Tutorials</div></div>
+      <div class="stat"><div class="stat-n" id="c4">0</div><div class="stat-l">Countries</div></div>
+    </div>
+  </div>
+
+  <!-- Ring progress -->
+  <div class="counter-ring">
+    <div class="ring-progress">
+      <svg viewBox="0 0 32 32" width="32" height="32">
+        <defs><linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06e6e6"/></linearGradient></defs>
+        <circle class="ring-track" cx="16" cy="16" r="14"/>
+        <circle class="ring-fill" cx="16" cy="16" r="14"/>
+      </svg>
+    </div>
+    <span class="ring-label">Auto-refreshing content 24/7</span>
+  </div>
+
+</div>
+
+<script>
+// Particles
+(function(){
+  const container = document.getElementById('particles');
+  const colors = ['#0ea5e9','#06e6e6','#00ffcc','#38bdf8'];
+  for(let i=0;i<35;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random()*3+1;
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}%;
+      animation-duration:${Math.random()*15+8}s;
+      animation-delay:${Math.random()*10}s;
+      opacity:${Math.random()*.6+.2};
+      box-shadow:0 0 ${size*3}px currentColor;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// Counter animation
+function animateCount(el, target, suffix, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = (start >= 1000000
+      ? (start/1000000).toFixed(1)+'M+'
+      : start >= 1000
+      ? Math.floor(start/1000)*1000 >= target
+        ? target+(suffix||'')
+        : Math.floor(start)+(suffix||'')
+      : Math.floor(start)+(suffix||''));
+    if(start >= target) clearInterval(timer);
+  }, 16);
+}
+
+setTimeout(()=>{
+  animateCount(document.getElementById('c1'), 2400000, '', 2000);
+  animateCount(document.getElementById('c2'), 500, '+', 1500);
+  animateCount(document.getElementById('c3'), 120, '+', 1200);
+  animateCount(document.getElementById('c4'), 48, '', 1000);
+}, 2200);
+</script>
+</body>
+</html>

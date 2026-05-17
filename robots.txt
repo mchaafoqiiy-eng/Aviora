@@ -1,0 +1,20 @@
+# robots.txt for Aivora — https://aviora-bay.vercel.app
+# Generated: May 2026
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Allow Google AdSense crawlers
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow Google AdsBot
+User-agent: AdsBot-Google
+Allow: /
+
+# Sitemap location
+Sitemap: https://aviora-bay.vercel.app/sitemap.xml
+
+# Crawl delay (be kind to server)
+Crawl-delay: 1

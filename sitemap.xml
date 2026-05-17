@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- News Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#news</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- AI Tools Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#tools</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Compare Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#compare</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tutorials Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#tutorials</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#blog</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#about</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#contact</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#privacy</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Articles -->
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-gpt5</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Aivora</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-12</news:publication_date>
+      <news:title>OpenAI Unveils GPT-5: Multimodal Reasoning Reaches Human Expert Level</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-euai</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Aivora</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-10</news:publication_date>
+      <news:title>EU AI Act Phase 2 Enforcement Begins: Complete Guide for Developers</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-agent</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Aivora</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-05</news:publication_date>
+      <news:title>How to Build an AI Agent from Scratch in 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-prompt</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-compare3</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Aivora</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-05-03</news:publication_date>
+      <news:title>Claude 4 vs GPT-5 vs Gemini Ultra: The Definitive 2026 Comparison</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-seo</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-jobs</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-rag</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-creators</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-state2026</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-europe</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-tut1</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aviora-bay.vercel.app/#article-finetune</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
